@@ -1,0 +1,67 @@
+doctype
+html
+  head
+    title Add new issue
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrapStyle.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    
+  body
+    nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+            a.navbar-brand(href='/') Issue Tracker
+        ul.nav.navbar-nav
+          li
+            a(href='/') Home
+          li
+            a(href='/issue') Issue Viewer
+          li.active
+            a(href='/issue/create') Add a new Issue
+    h3 Create a New Issue 
+ 
+form(id='form', method='post', action='/issue/create',autocomplete='on')
+  ul.form-style-1
+    li
+      label
+        | Issue Name 
+        span.required *
+      input.field-long(type='text', name='name', placeholder='Issue name', required='')
+      
+    li
+      label
+        | Description 
+        span.required *
+      input.field-long(type='text', name='description', placeholder='Description', required='')
+    li
+      label
+        | Severity
+        span.required *
+        select#sel1.form-control(name='severity', required='')
+          option(selected='selected') Select here
+          option Low
+          option Medium
+          option High
+    li
+      label
+        | Status
+        span.required *
+        select#sel1.form-control(name='status', required='')
+          option(selected='selected') Select here
+          option Open
+          option Pending
+          option Closed
+    li
+      label
+        | Created Date
+        span.required *
+        input.field-long(type='date', name='createDate', required='') 
+    li
+      label
+        | Closed Date
+        span.required *
+        input.field-long(type='date', name='closeDate', required='')     
+    li
+      input(type='submit', value='Add Issue')
+

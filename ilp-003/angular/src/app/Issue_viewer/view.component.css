@@ -1,0 +1,28 @@
+.A_1 {
+    bottom: 0px;
+    box-shadow: rgba(102, 191, 255, 0.75) 0px 1px 0px 0px inset, rgba(0, 149, 255, 0) 0px 0px 0px 0px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    display: inline-flex;
+    height: 37.7813px;
+   
+    left: 0px;
+    position: relative;
+    right: 0px;
+    text-align: left;
+    text-decoration: none solid rgb(255, 255, 255);
+    top: 0px;
+    white-space: nowrap;
+    width: 110px;
+    column-rule-color: rgb(255, 255, 255);
+    align-items: center;
+    perspective-origin: 50.0469px 18.8906px;
+    transform-origin: 50.0469px 18.8906px;
+    caret-color: rgb(255, 255, 255);
+    background: rgb(0, 149, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 1px solid rgb(0, 119, 204);
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal 400 normal 13px / 15px Arial, "Helvetica Neue", Helvetica, sans-serif;
+    outline: rgb(255, 255, 255) none 0px;
+    padding: 10.4px;
+}/*#A_1*/

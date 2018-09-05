@@ -1,0 +1,54 @@
+doctype
+html
+  head
+    title Edit existing issue
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrapStyle.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body
+    h3 issue Details
+form(id='form', method='post', action='/issue/edit/#{issue.id}',autocomplete='on')
+  ul.form-style-1
+    li
+      label
+        | Issue Name 
+        span.required *
+      input.field-long(type='text', name='name', placeholder='Issue name', required='',value='#{issue.name}')
+      
+    li
+      label
+        | Description 
+        span.required *
+      input.field-long(type='text', name='description', placeholder='Description', required='',value='#{issue.description}')
+    li
+      label
+        | Severity
+        span.required *
+        select#sel1.form-control(name='severity', required='',value='#{issue.severity}')
+         
+          option(selected=issue.severity=="Low")  Low
+          option(selected=issue.severity=="Medium") Medium
+          option(selected=issue.severity=="High") High
+    li
+      label
+        | Status
+        span.required *
+        select#sel1.form-control(name='status', required='',value='#{issue.status}')
+         
+          option(selected=issue.status=="Open") Open
+          option(selected=issue.status=="Pending") Pending
+          option(selected=issue.status=="Closed") Closed
+    li
+      label
+        | Created Date
+        span.required *
+        input.field-long(type='date', name='createDate', required='',value='#{issue.created_date}') 
+    li
+      label
+        | Closed Date
+        span.required *
+        input.field-long(type='date', name='closeDate', required='',value='#{issue.closed_date}')     
+    li
+      input(type='submit', value='Update Issue')
+

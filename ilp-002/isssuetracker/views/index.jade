@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+            a.navbar-brand(href='/') Issue Tracker
+        ul.nav.navbar-nav
+          li.active
+            a(href='/') Home
+          li
+            a(href='/issue') Issue Viewer
+          li
+            a(href='/issue/create') Add a new Issue
+  h1= title
+
+  p Welcome to #{title} 
+    a(href='/issue') Go to Issue Viewer

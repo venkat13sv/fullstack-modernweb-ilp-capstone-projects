@@ -1,0 +1,46 @@
+doctype
+html
+  head
+    title=title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body
+    nav.navbar.navbar-inverse
+        .container-fluid
+          .navbar-header
+              a.navbar-brand(href='/') Issue Tracker
+          ul.nav.navbar-nav
+            li
+              a(href='/') Home
+            li.active
+              a(href='/issue') Issue Viewer
+            li
+              a(href='/issue/create') Add a new Issue
+          
+    h3 Issue
+    table.table.table-bordered(style='width:50%;margin-left: 50px;')
+      tr
+        th Issue
+        th Description
+        th Severity
+        th Created Date
+        th Status
+        th Closed Date
+        th Edit
+        th Delete
+      each item in issues
+        tr
+          td #{item.name}
+          td #{item.description}
+          td #{item.severity}
+          td #{item.created_date}
+          td #{item.status}
+          td #{item.closed_date}
+          td
+            a.btn.btn-xs.btn-primary(href='/issue/edit/#{item.id}') Edit
+          td
+            a.btn.btn-xs.btn-danger(href='/issue/delete/#{item.id}') Delete
+    p
+    #menu
+      a.btn.btn-xs.btn-primary(href='/issue/create') Add new issue

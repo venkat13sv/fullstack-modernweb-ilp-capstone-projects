@@ -1,0 +1,91 @@
+<div>
+    <h2>Issues Viewer Details</h2>
+  
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+        <div class="form-group">
+                <label for="InputSearch">Search to find</label>
+                <input type="text"[ngModel]="searchWord" class="form-control" value=""  (ngModelChange)="filterItem($event)" aria-describedby="emailHelp" placeholder="Search">
+                <p>{{searchWord}}</p>
+              </div>
+	<div class="row">
+		<div class="span10">
+            <table class="table table-striped table-condensed">
+                  <thead>
+                    <tr><label class="checkbox-inline"><input type="checkbox" value="" [(ngModel)]="colName">Name</label>
+<label class="checkbox-inline"><input type="checkbox" value="" [(ngModel)]="colSeverity">Severity</label>
+<label class="checkbox-inline"><input type="checkbox" value=""  [(ngModel)]="colStatus" >Status</label>
+<label class="checkbox-inline"><input type="checkbox" value="" [(ngModel)]="colOpenDate" >Created_date</label>
+<label class="checkbox-inline"><input type="checkbox" value="" [(ngModel)]="colCloseDate" >Closed_date</label>
+
+                  <tr>
+                     <th>Selector</th>
+                      <th  [hidden]="!colName" >Name</th>
+                      <th  [hidden]="!colSeverity"> Severity</th>
+                      <th [hidden]="!colOpenDate"> Opened date </th>
+                      <th [hidden]="!colStatus" > Status</th> 
+                      <th [hidden]="!colCloseDate"> Closed Date</th> 
+                                                           
+                  </tr>
+              </thead>   
+              <tbody>
+               <!-- <tr>
+                    <td>Donna R. Folse</td>
+                    <td>2012/05/06</td>
+                    <td>Editor</td>
+                    <td><span class="label label-success">Active</span>
+                    </td>                                       
+                </tr>
+                <tr>
+                    <td>Emily F. Burns</td>
+                    <td>2011/12/01</td>
+                    <td>Staff</td>
+                    <td><span class="label label-important">Banned</span></td>
+                    <td>Staff</td>
+                    <td>Staff</td>                                       
+                </tr>
+                <tr>
+                    <td>Andrew A. Stout</td>
+                    <td>2010/08/21</td>
+                    <td>User</td>
+                    <td><span class="label">Inactive</span></td>                                        
+                </tr>
+                <tr>
+                    <td>Mary M. Bryan</td>
+                    <td>2009/04/11</td>
+                    <td>Editor</td>
+                    <td><span class="label label-warning">Pending</span></td>                                       
+                </tr>
+                <tr>
+                    <td>Mary A. Lewis</td>
+                    <td>2007/02/01</td>
+                    <td>Staff</td>
+                    <td><span class="label label-success">Active</span></td>                                        
+                </tr>  -->
+                <tr *ngFor='let issue of issues' >
+                    <td style="width: 12px;height: 31px;"   ><input type="checkbox"  #checkdelet id="{{issue.id}}" value="{{issue.id}}" (click)="selectID(issue.id,$event) "></td>
+                    <td [hidden]="!colName"><a [routerLink]="issue.id">{{ issue.name | uppercase }}</a></td>
+                    <td [hidden]="!colSeverity">{{ issue.severity }}</td>
+                    <td [hidden]="!colOpenDate">{{ issue.created_date }}</td>
+                    <td [hidden]="!colStatus">{{ issue.status }}</td>
+                    <td [hidden]="!colCloseDate">{{ issue.closed_date }}</td>
+                  <td><a [routerLink]="['/editissue',issue.id]" class="btn btn-xs btn-primary">Edit</a></td>
+                    <td><a (click)="deleteissue(issue.id)" class="btn btn-xs btn-danger">Delete</a></td>
+                </tr>                                 
+              </tbody>
+            </table>
+            <a [routerLink]="['/addIssue']" class="A_1">Add New Issue</a>
+          
+
+            <a (click)="deleteissueSelected()" class="btn btn-xs btn-danger" style="float:right">Delete Selected</a>
+            </div>
+	</div>
+</div>
+   <!-- <button (click)="goBack()">Back</button>-->
+</div>
+<router-outlet></router-outlet>

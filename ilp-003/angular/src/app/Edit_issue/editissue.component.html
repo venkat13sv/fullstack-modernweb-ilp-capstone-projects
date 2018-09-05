@@ -1,0 +1,57 @@
+<div class="container">
+  <h1>Edit Issue</h1>
+  <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+<div class="form-group">
+  <label for="usr">Name:</label>
+  <input type="text" name="name" class="form-control" [(ngModel)]="issue.name" id="usr">
+</div>
+<div class="form-group">
+  <label for="pwd">Description:</label>
+  <input type="text" name="description" class="form-control" [(ngModel)]="issue.description" id="des">
+</div>
+<div class="form-group">
+  <label for="sel1">Severity:</label>
+  <select class="form-control" name="severity" [ngModel]="issue.severity" id="sel1">
+    <option>Low</option>
+    <option>Medium</option>
+    <option>High</option>
+  
+  </select>
+</div>
+ <div class="form-group">
+  <label for="sel1">Status:</label>
+  <select class="form-control" name="status" [ngModel]="issue.status" id="sel1">
+    <option>Open</option>
+    <option>Pending</option>
+    <option>Closed</option>
+  
+  </select>
+</div>
+<div class="form-group">
+  <div class="input-group">
+    <label for="pwd">Opened Date:</label>
+    <input class="form-control" placeholder="yyyy-mm-dd" 
+           name="dp1"  [(ngModel)]="dp1" ngbDatepicker #d="ngbDatepicker">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+        <img src="../assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="input-group">
+    <label for="pwd">Closed Date:</label>
+    <input class="form-control" placeholder="yyyy-mm-dd" 
+           name="dp"  [(ngModel)]="dp" ngbDatepicker #d1="ngbDatepicker">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="d1.toggle()" type="button">
+        <img src="../assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+      </button>
+    </div>
+  </div>
+</div>
+
+<button type="submit" class="btn btn-info">Submit</button>
+</form>
+</div>
